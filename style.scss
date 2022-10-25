@@ -1,0 +1,89 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	border: 0;
+}
+
+
+
+html {
+	height: 100%;
+
+	button {
+		font-family: inherit;
+		cursor: pointer;
+
+		&:hover {
+			border: solid 2px rgb(40, 40, 40);
+			transition: 50ms;
+		}
+
+		&:active{
+			filter: brightness(0.5);
+			transition: 400ms;
+		}
+	}
+}
+
+body {
+	background: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+	font-family: Varela Round, serif;
+	//overflow: hidden;
+}
+
+.container {
+	padding: 15px;
+}
+
+.calculator {
+	background: rgb(146, 211, 217);
+	box-shadow: 0 0 10px rgb(40, 40, 40);
+	border: 1px solid rgb(40, 40, 40);
+	margin: 15% auto;
+	padding: 20px;
+	height: 400px;
+	width: 300px;
+
+	.window {
+		display: flex;
+		border: 1px solid rgb(40, 40, 40);
+		background: rgb(205, 205, 205);
+		color: rgb(40, 40, 40);
+		box-sizing: border-box;
+		align-items: flex-end;
+		justify-content: end;
+		padding: 20px 10px;
+		line-height: 1.5;
+		margin: 0 0 5px;
+		font-size: 30px;
+		font-size: 40px;
+		height: 100px;
+	}
+
+	.buttons {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		height: 75%;
+		gap: 5px;
+
+		&__top-row {
+			background: rgb(182, 182, 182);
+		}
+
+		&__digits {
+			background: rgb(135, 135, 135);
+			color: rgb(255, 255, 255);
+		}
+
+		&__left-column {
+			background: rgb(255, 176, 31);
+			color: rgb(255, 255, 255);
+		}
+
+		:last-child {
+			color: rgb(0, 0, 0);
+		}
+	}
+}
