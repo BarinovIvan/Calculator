@@ -19,7 +19,7 @@ html {
 			transition: 50ms;
 		}
 
-		&:active{
+		&:active {
 			filter: brightness(0.5);
 			transition: 400ms;
 		}
@@ -29,18 +29,20 @@ html {
 body {
 	background: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 	font-family: Varela Round, serif;
-	//overflow: hidden;
 }
 
 .container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	padding: 15px;
 }
 
 .calculator {
-	background: rgb(146, 211, 217);
 	box-shadow: 0 0 10px rgb(40, 40, 40);
 	border: 1px solid rgb(40, 40, 40);
-	margin: 15% auto;
+	background: rgb(146, 211, 217);
+	margin: 40px auto;
 	padding: 20px;
 	height: 400px;
 	width: 300px;
@@ -53,11 +55,11 @@ body {
 		box-sizing: border-box;
 		align-items: flex-end;
 		justify-content: end;
+		overflow: hidden;
 		padding: 20px 10px;
 		line-height: 1.5;
 		margin: 0 0 5px;
 		font-size: 30px;
-		font-size: 40px;
 		height: 100px;
 	}
 
@@ -86,4 +88,17 @@ body {
 			color: rgb(0, 0, 0);
 		}
 	}
+}
+
+#popupAlert {
+	background-color: rgb(182, 182, 182);
+	box-shadow: 0 0 10px rgb(40, 40, 40);
+	border-radius: 15px;
+	margin: 40px auto 0;
+	text-align: center;
+	padding: 15px 20px;
+	font-style: italic;
+	opacity: 0;
+	
+	transition: opacity 0.3s ease;
 }
