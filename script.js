@@ -11,32 +11,32 @@ let operationNeeded = 0;
 let caclulatorWindow = document.querySelector("#calculatorWindow");
 let popupAlert = document.querySelector("#popupAlert");
 
-function displayOnTheScreen(expression){
-	caclulatorWindow.textContent = Math.round(expression*100)/100;
+function displayOnTheScreen(expression) {
+	caclulatorWindow.textContent = Math.round(expression * 100) / 100;
 }
 
 function press(num) {
-	isNotDefined();
+	isNotDefined(); //Проверка что результат прошлой операции не NaN
 
-	if (expectNewValue) {
+	if (expectNewValue) { //Ввод нового значения
 		expression_new += String(num);
 		displayOnTheScreen(expression_new);
 		return;
 	}
 
-	expression += num;
+	expression += num; //Ввод первоначального значения
 	displayOnTheScreen(expression);
 }
 
-function isNotDefined(){
-	if(isNaN(expression)){
+function isNotDefined() {
+	if (isNaN(expression)) {
 		expectNewValue = false;
 		clearExpression();
 	}
 }
 
 function add() {
-	expectNewValue = true;
+	expectNewValue = true; // Если была нажата кнопка любой операции, прекращаем считывание первого числа и ждём второе
 	operationNeeded = 1;
 }
 
@@ -65,31 +65,28 @@ function clearExpression() {
 function equal() {
 	switch (operationNeeded) {
 		case 1:
-			console.log(`add: ${expression} + ${expression_new} = ${+expression + +expression_new}`);
+			//console.log(`add: ${expression} + ${expression_new} = ${+expression + +expression_new}`);
 			expression = +expression + +expression_new;
 			break;
 		case 2:
-			console.log(`subtract: ${expression} - ${expression_new} = ${+expression - +expression_new}`);
+			//console.log(`subtract: ${expression} - ${expression_new} = ${+expression - +expression_new}`);
 			expression = +expression - +expression_new;
 			break;
 		case 3:
-			console.log(`multiply: ${expression} * ${expression_new} = ${+expression * +expression_new}`);
+			//console.log(`multiply: ${expression} * ${expression_new} = ${+expression * +expression_new}`);
 			expression = +expression * +expression_new;
 			break;
 		case 4:
-			console.log(`divide: ${expression} / ${expression_new} = ${+expression / +expression_new}`);
-			if(expression_new == 0){
-				expression = NaN; 
+			//console.log(`divide: ${expression} / ${expression_new} = ${+expression / +expression_new}`);
+			if (expression_new == 0) {
+				expression = NaN;
 				break;
 			}
 			expression = +expression / +expression_new;
 			break;
-		default:
-			break;
 	}
-
 	displayOnTheScreen(expression);
-	expression_new = "";
+	expression_new = ""; // обнуляем второе число, чтобы набрать его заного
 }
 
 function notMadeYet() {
@@ -97,5 +94,5 @@ function notMadeYet() {
 	setTimeout(() => {
 		popupAlert.style.opacity = "0";
 	}, 2000);
-	
+
 }
